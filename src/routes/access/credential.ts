@@ -7,11 +7,7 @@ import User from '../../database/model/User';
 import validator from '../../helpers/validator';
 import schema from './schema';
 import asyncHandler from '../../helpers/asyncHandler';
-import bcrypt from 'bcrypt';
 import _ from 'lodash';
-import { RoleCode } from '../../database/model/Role';
-import role from '../../helpers/role';
-import authorization from '../../auth/authorization';
 import authentication from '../../auth/authentication';
 import KeystoreRepo from '../../database/repository/KeystoreRepo';
 import { scrypt, randomBytes } from 'crypto';
@@ -19,7 +15,7 @@ import { promisify } from 'util';
 const router = express.Router();
 
 //----------------------------------------------------------------
-router.use(authentication, role(RoleCode.ADMIN), authorization);
+// router.use(authentication, role(RoleCode.ADMIN), authorization);
 //----------------------------------------------------------------
 
 router.post(

@@ -15,9 +15,11 @@ export default {
     })
     .unknown(true),
   signup: Joi.object().keys({
-    name: Joi.string().required().min(3),
-    email: Joi.string().required().email(),
+    firstName: Joi.string().required().min(3),
+    lastName:Joi.string().required().min(3),
+    email: Joi.string().email(),
+    phone:Joi.string().required().max(10),
     password: Joi.string().required().min(6),
-    profilePicUrl: Joi.string().optional().uri(),
+    profilePic: Joi.string().optional(),
   }),
 };

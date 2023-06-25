@@ -57,7 +57,6 @@ async function create(
   user: User,
   accessTokenKey: string,
   refreshTokenKey: string,
-  roleCode: string,
 ): Promise<{ user: User; keystore: Keystore }> {
   const now = new Date();
 
@@ -69,7 +68,7 @@ async function create(
     refreshTokenKey,
   );
   return {
-    user: { ...createdUser.toObject(), roles: user.roles },
+    user: { ...createdUser.toObject(), role: user.role },
     keystore: keystore,
   };
 }

@@ -4,19 +4,16 @@ import { ProtectedRequest } from 'app-request';
 import { BadRequestError, ForbiddenError } from '../../core/ApiError';
 import BlogRepo from '../../database/repository/BlogRepo';
 import Blog from '../../database/model/Blog';
-import { RoleCode } from '../../database/model/Role';
 import { Types } from 'mongoose';
 import validator, { ValidationSource } from '../../helpers/validator';
 import schema from './schema';
 import asyncHandler from '../../helpers/asyncHandler';
 import authentication from '../../auth/authentication';
-import authorization from '../../auth/authorization';
-import role from '../../helpers/role';
 
 const router = express.Router();
 
 /*-------------------------------------------------------------------------*/
-router.use(authentication, role(RoleCode.WRITER), authorization);
+// router.use(authentication, role(RoleCode.WRITER), authorization);
 /*-------------------------------------------------------------------------*/
 
 const formatEndpoint = (endpoint: string) =>

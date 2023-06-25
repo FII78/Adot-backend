@@ -3,23 +3,20 @@ import { SuccessResponse, SuccessMsgResponse } from '../../core/ApiResponse';
 import { ProtectedRequest } from 'app-request';
 import { BadRequestError, ForbiddenError } from '../../core/ApiError';
 import BlogRepo from '../../database/repository/BlogRepo';
-import { RoleCode } from '../../database/model/Role';
 import { Types } from 'mongoose';
 import validator, { ValidationSource } from '../../helpers/validator';
 import schema from './schema';
 import asyncHandler from '../../helpers/asyncHandler';
 import authentication from '../../auth/authentication';
-import authorization from '../../auth/authorization';
-import role from '../../helpers/role';
 
 const router = express.Router();
 
 /*-------------------------------------------------------------------------*/
-router.use(
-  authentication,
-  role(RoleCode.ADMIN, RoleCode.EDITOR),
-  authorization,
-);
+// router.use(
+//   authentication,
+//   role(RoleCode.ADMIN, RoleCode.EDITOR),
+//   authorization,
+// );
 /*-------------------------------------------------------------------------*/
 
 router.put(

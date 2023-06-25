@@ -1,3 +1,4 @@
+import { date } from 'joi';
 import { model, Schema, Types } from 'mongoose';
 
 export const DOCUMENT_NAME = 'User';
@@ -8,67 +9,71 @@ export const COLLECTION_NAME = 'users';
 
 export default interface User {
   _id: Types.ObjectId;
-  name?: string;
-  profilePicUrl?: string;
-  email?: string;
-  password?: string;
-  roles: string;
-  verified?: boolean;
-  status?: boolean;
-  salt?:string;
+  firstName: string;
+  lastName:string;
+  phone:string;
+  profilePic: string;
+  email: string;
+  password: string;
+  role: string;
+  salt:string;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
 const schema = new Schema<User>(
   {
-    name: {
+    firstName: {
       type: Schema.Types.String,
-      trim: true,
       maxlength: 200,
+      required: true
     },
-    profilePicUrl: {
+    lastName:{
       type: Schema.Types.String,
-      trim: true,
+      maxlength:200,
+      required:true
+    },
+    phone:{
+      type:Schema.Types.String,
+      maxlength:10,
+      required:true
+    },
+    profilePic: {
+      type: Schema.Types.String,
+      required:false,
+      default: ''
     },
     email: {
       type: Schema.Types.String,
       unique: true,
-      sparse: true, // allows null
       trim: true,
-      select: false,
+      required: false
     },
     password: {
       type: Schema.Types.String,
-      select: false,
+      required:true
     },
-    roles: {
+    role: {
       type:String,
       enum:['Admin', 'User'],
       required: false,
       default:'User'
     },
-    verified: {
-      type: Schema.Types.Boolean,
-      default: false,
-    },
-    status: {
-      type: Schema.Types.Boolean,
-      default: true,
-    },
     salt:{
       type:Schema.Types.String,
-      required:true,
+      required:false,
     },
     createdAt: {
       type: Schema.Types.Date,
       required: true,
       select: false,
+      default:Date.now()
     },
     updatedAt: {
       type: Schema.Types.Date,
       required: true,
       select: false,
+      default:Date.now()
     },
   },
   {

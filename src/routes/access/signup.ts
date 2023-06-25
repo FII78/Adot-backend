@@ -9,17 +9,18 @@ import { createTokens } from '../../auth/authUtils';
 import validator, { ValidationSource } from '../../helpers/validator';
 import schema from './schema';
 import asyncHandler from '../../helpers/asyncHandler';
-import { RoleCode } from '../../database/model/Role';
 import { getUserData } from './utils';
 import { scrypt, randomBytes } from 'crypto';
 import { promisify } from 'util';
+import cloudinary from '../../config/cloudinary';
+import { filterImage } from '../../middlewares/multer';
 
 const scryptAsync = promisify(scrypt);
 
 const router = express.Router();
 
 router.post(
-  '/basic',
+  '/basic',filterImage.single('file'),
   validator(schema.signup),
   asyncHandler(async (req: RoleRequest, res) => {
     const user = await UserRepo.findByEmail(req.body.email);
@@ -33,18 +34,25 @@ router.post(
     const derivedKey = await scryptAsync(passwordBuffer, Buffer.from(salt, 'hex'), 64) as Buffer;
 
     const passwordHash = derivedKey.toString('hex');
-
+    let cloudinaryImage = null;
+    if (req.file){
+     cloudinaryImage = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'Images',
+      use_filename: true,
+    });}
     const { user: createdUser, keystore } = await UserRepo.create(
       {
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        phone: req.body.phone,
         email: req.body.email,
-        profilePicUrl: req.body.profilePicUrl,
+        role: req.body.role,
+        profilePic: cloudinaryImage?.secure_url,
         password: passwordHash,
         salt: salt,
-      } as User,
+      } as unknown as User,
       accessTokenKey,
       refreshTokenKey,
-      RoleCode.LEARNER,
     );
     const tokens = await createTokens(
       createdUser,
