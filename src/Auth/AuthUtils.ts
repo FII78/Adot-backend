@@ -34,6 +34,7 @@ export const createTokens = async (
 ): Promise<Tokens> => {
   const accessToken = await JWT.encode(
     new JwtPayload(
+
       tokenInfo.issuer,
       tokenInfo.audience,
       user._id.toString(),

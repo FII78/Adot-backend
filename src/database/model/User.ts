@@ -1,8 +1,10 @@
 import { model, Schema, Types } from 'mongoose';
-import Role from './Role';
 
 export const DOCUMENT_NAME = 'User';
 export const COLLECTION_NAME = 'users';
+// import { scrypt, randomBytes, timingSafeEqual } from 'crypto';
+
+// const salt = randomBytes(16).toString('hex');
 
 export default interface User {
   _id: Types.ObjectId;
@@ -10,9 +12,10 @@ export default interface User {
   profilePicUrl?: string;
   email?: string;
   password?: string;
-  roles: Role[];
+  roles: string;
   verified?: boolean;
   status?: boolean;
+  salt?:string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -40,14 +43,10 @@ const schema = new Schema<User>(
       select: false,
     },
     roles: {
-      type: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'Role',
-        },
-      ],
-      required: true,
-      select: false,
+      type:String,
+      enum:['Admin', 'User'],
+      required: false,
+      default:'User'
     },
     verified: {
       type: Schema.Types.Boolean,
@@ -56,6 +55,10 @@ const schema = new Schema<User>(
     status: {
       type: Schema.Types.Boolean,
       default: true,
+    },
+    salt:{
+      type:Schema.Types.String,
+      required:true,
     },
     createdAt: {
       type: Schema.Types.Date,

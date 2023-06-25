@@ -36,7 +36,7 @@ const schema = new Schema<ApiKey>(
     permissions: {
       type: [
         {
-          type: Schema.Types.String,
+          type: String,
           required: true,
           enum: Object.values(Permission),
         },

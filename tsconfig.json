@@ -1,16 +1,21 @@
 {
   "compilerOptions": {
-    "types": ["node", "express"],
     "module": "CommonJS",
+    // Import non-ES modules as default imports.
     "esModuleInterop": true,
+    // Target latest version of ECMAScript.
     "target": "ES2019",
+    // Process & infer types from .js files.
     "allowJs": false,
+    // Enable strictNullChecks & noImplicitAny.
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strict": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
+    "strictFunctionTypes": false,
+    "noImplicitThis": false,
+    // Search under node_modules for non-relative imports.
     "moduleResolution": "node",
+    // Import .json files
     "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "build",
@@ -20,6 +25,5 @@
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", ".templates","node_modules/app-request",
-  "path/to/app-request-folder"]
+  "exclude": [".templates"]
 }

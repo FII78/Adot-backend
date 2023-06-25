@@ -1,23 +1,20 @@
-import mongoose from 'mongoose';
-import Logger from '../../core/logger';
-import { db } from '../../config';
+import mongoose from 'mongoose'
+import options from '../config'
+import Logger from '../core/Logger';
+import { db } from '../config';
 
-// Build the connection string
-const dbURI = `mongodb://${db.user}:${encodeURIComponent(db.password)}@${
-  db.host
-}:${db.port}/${db.name}`;
+const dbURI = options.dbUrl
 
-const options = {
+const option = {
   autoIndex: true,
   minPoolSize: db.minPoolSize, // Maintain up to x socket connections
   maxPoolSize: db.maxPoolSize, // Maintain up to x socket connections
   connectTimeoutMS: 60000, // Give up initial connection after 10 seconds
   socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
 };
-
 Logger.debug(dbURI);
 
-function setRunValidators(this:any) {
+function setRunValidators() {
   this.setOptions({ runValidators: true });
 }
 
@@ -31,7 +28,7 @@ mongoose
     schema.pre('updateOne', setRunValidators);
     schema.pre('update', setRunValidators);
   })
-  .connect(dbURI, options)
+  .connect(dbURI, option)
   .then(() => {
     Logger.info('Mongoose connection done');
   })

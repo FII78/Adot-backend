@@ -3,7 +3,7 @@ import { readFile } from 'fs';
 import { promisify } from 'util';
 import { sign, verify } from 'jsonwebtoken';
 import { InternalError, BadTokenError, TokenExpiredError } from './ApiError';
-import Logger from './logger';
+import Logger from './Logger';
 
 /*
  * issuer 		— Software organization who issues the token.

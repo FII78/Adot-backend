@@ -1,9 +1,8 @@
 import User, { UserModel } from '../model/User';
-import { RoleModel } from '../model/Role';
 import { InternalError } from '../../core/ApiError';
 import { Types } from 'mongoose';
-import Keystore from '../model/Keystore';
 import KeystoreRepo from './KeystoreRepo';
+import Keystore from '../model/Keystore';
 
 async function exists(id: Types.ObjectId): Promise<boolean> {
   const user = await UserModel.exists({ _id: id, status: true });
@@ -28,10 +27,6 @@ async function findPrivateProfileById(
 async function findById(id: Types.ObjectId): Promise<User | null> {
   return UserModel.findOne({ _id: id, status: true })
     .select('+email +password +roles')
-    .populate({
-      path: 'roles',
-      match: { status: true },
-    })
     .lean()
     .exec();
 }
@@ -41,11 +36,6 @@ async function findByEmail(email: string): Promise<User | null> {
     .select(
       '+email +password +roles +gender +dob +grade +country +state +city +school +bio +hobbies',
     )
-    .populate({
-      path: 'roles',
-      match: { status: true },
-      select: { code: 1 },
-    })
     .lean()
     .exec();
 }
@@ -71,13 +61,6 @@ async function create(
 ): Promise<{ user: User; keystore: Keystore }> {
   const now = new Date();
 
-  const role = await RoleModel.findOne({ code: roleCode })
-    .select('+code')
-    .lean()
-    .exec();
-  if (!role) throw new InternalError('Role must be defined');
-
-  user.roles = [role];
   user.createdAt = user.updatedAt = now;
   const createdUser = await UserModel.create(user);
   const keystore = await KeystoreRepo.create(
