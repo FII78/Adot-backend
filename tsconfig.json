@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "commonJS",
     // Import non-ES modules as default imports.
     "esModuleInterop": true,
     // Target latest version of ECMAScript.
