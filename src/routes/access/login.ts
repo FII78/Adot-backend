@@ -20,7 +20,7 @@ router.post(
   '/basic',
   validator(schema.credential),
   asyncHandler(async (req: PublicRequest, res) => {
-    const user = await UserRepo.findByEmail(req.body.email);
+    const user = await UserRepo.findByPhone(req.body.phone);
     if (!user) throw new BadRequestError('User not registered');
     if (!user.password) throw new BadRequestError('Credential not set');
 

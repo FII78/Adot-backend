@@ -8,6 +8,7 @@ import credential from './access/credential';
 import blog from './blog';
 import blogs from './blogs';
 import profile from './profile';
+import topic from './topic'
 
 const router = express.Router();
 
@@ -25,5 +26,6 @@ router.use('/credential', credential);
 router.use('/profile', profile);
 router.use('/blog', blog);
 router.use('/blogs', blogs);
+router.use('/topic', topic)
 
 export default router;

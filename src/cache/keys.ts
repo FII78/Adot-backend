@@ -6,6 +6,10 @@ export enum DynamicKey {
   BLOGS_SIMILAR = 'BLOGS_SIMILAR',
   BLOG = 'BLOG',
 }
+export enum DynamicKey {
+  TOPICS_SIMILAR = 'BLOGS_SIMILAR',
+  TOPIC = 'TOPIC',
+}
 
 export type DynamicKeyType = `${DynamicKey}_${string}`;
 

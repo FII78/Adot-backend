@@ -16,6 +16,8 @@ export default interface User {
   email: string;
   password: string;
   role: string;
+  title:string,
+  bio:string
   salt:string;
   isVerified: Boolean
   createdAt?: Date;
@@ -60,6 +62,14 @@ const schema = new Schema<User>(
       enum:['Admin', 'User'],
       required: false,
       default:'User'
+    },
+    title:{
+      type:Schema.Types.String,
+      required: false
+    },
+    bio:{
+      type:Schema.Types.String,
+      required:false
     },
     salt:{
       type:Schema.Types.String,

@@ -52,6 +52,8 @@ router.post(
         phone: req.body.phone,
         email: req.body.email,
         role: req.body.role,
+        bio:req.body.bio,
+        title:req.body.title,
         profilePic: cloudinaryImage?.secure_url,
         password: passwordHash,
         salt: salt,
@@ -90,7 +92,6 @@ router.post(
        throw new BadRequestError('User already verified')
     }
     const user = await validateUser(phone, otpCode)
-    console.log(user)
     if (!user) {
       throw new BadRequestError('Wrong verification code')
     }

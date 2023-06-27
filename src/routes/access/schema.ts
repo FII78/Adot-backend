@@ -3,7 +3,7 @@ import { JoiAuthBearer } from '../../helpers/validator';
 
 export default {
   credential: Joi.object().keys({
-    email: Joi.string().required().email(),
+    phone: Joi.string().required(),
     password: Joi.string().required().min(6),
   }),
   refreshToken: Joi.object().keys({
@@ -21,5 +21,7 @@ export default {
     phone:Joi.string().required().max(14),
     password: Joi.string().required().min(6),
     profilePic: Joi.string().optional(),
+    bio: Joi.string(),
+    title:Joi.string()
   }),
 };
