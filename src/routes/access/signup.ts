@@ -3,7 +3,7 @@ import { SuccessResponse } from '../../core/ApiResponse';
 import { RoleRequest } from 'app-request';
 import crypto from 'crypto';
 import UserRepo from '../../database/repository/UserRepo';
-import { BadRequestError } from '../../core/ApiError';
+import { BadRequestError,InternalError} from '../../core/ApiError';
 import User from '../../database/model/User';
 import { createTokens } from '../../auth/authUtils';
 import validator, { ValidationSource } from '../../helpers/validator';
@@ -14,6 +14,10 @@ import { scrypt, randomBytes } from 'crypto';
 import { promisify } from 'util';
 import cloudinary from '../../config/cloudinary';
 import { filterImage } from '../../middlewares/multer';
+import { sendOtp } from '../../helpers/otp';
+import { generateOTP } from '../../helpers/otp';
+import { Request, Response, NextFunction } from 'express';
+import OtpRepo from '../../database/repository/OtpRepo'
 
 const scryptAsync = promisify(scrypt);
 
@@ -40,6 +44,7 @@ router.post(
       folder: 'Images',
       use_filename: true,
     });}
+    
     const { user: createdUser, keystore } = await UserRepo.create(
       {
         firstName: req.body.firstName,
@@ -53,7 +58,13 @@ router.post(
       } as unknown as User,
       accessTokenKey,
       refreshTokenKey,
-    );
+    )
+    const OTPGenerated = generateOTP(6)
+    await sendOtp(req.body.phone,OTPGenerated)
+    const otp = await OtpRepo.create({
+      phone: req.body.phone,
+      otpCode: OTPGenerated
+    })
     const tokens = await createTokens(
       createdUser,
       keystore.primaryKey,
@@ -67,5 +78,68 @@ router.post(
     }).send(res);
   }),
 );
+router.post(
+  '/verify',
+  asyncHandler(async (req: RoleRequest, res) => {
+    const { phone, otpCode } = req.body
+    const checkUser = await UserRepo.findByPhone(phone)
+    if (!checkUser) {
+      throw new BadRequestError('Wrong verification code')
+    }
+    if (checkUser.isVerified) {
+       throw new BadRequestError('User already verified')
+    }
+    const user = await validateUser(phone, otpCode)
+    console.log(user)
+    if (!user) {
+      throw new BadRequestError('Wrong verification code')
+    }
 
+    new SuccessResponse('Account successfully verified', {
+    }).send(res);
+  }),
+);
+router.post(
+  '/resendCode',
+  asyncHandler(async (req: RoleRequest, res) => {
+    const { phone } = req.body
+    const OTP = await OtpRepo.findByPhone( phone)
+    if (!OTP) {
+      throw new BadRequestError('User not registored')
+    }
+    const newOtp = generateOTP(6)
+    OTP.otpCode = newOtp
+    const otp  = await OtpRepo.create(
+      {
+        phone: phone,
+        otpCode:newOtp
+      })
+      try {
+        await sendOtp(phone,  newOtp)
+      } catch (error) {
+        throw new InternalError('Could not  resend the code')
+      }
+
+    new SuccessResponse('Code resent successfully', {
+    }).send(res);
+  }),
+);
+const validateUser = async (phone: string, otpCode: string) => {
+    try {
+      const user = await UserRepo.findByPhone(phone)
+      if (!user) {
+        return false
+      }
+      const userOtp = await OtpRepo.findByPhone(phone)
+      if (userOtp && (userOtp.otpCode !== otpCode)) {
+        console.log(userOtp.otpCode !== otpCode, userOtp.otpCode, otpCode)
+        return false
+      }
+      user.isVerified = true
+      const updatedUser = await UserRepo.updateInfo(user)
+      return updatedUser
+    } catch (error) {
+      return false
+    }
+  }
 export default router;

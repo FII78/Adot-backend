@@ -1,18 +1,35 @@
-import mongoose from 'mongoose'
+import mongoose ,{ model, Schema, Types } from 'mongoose';
+export const DOCUMENT_NAME = 'Otp';
+export const COLLECTION_NAME = 'otps';
 
-export interface IOTPInterface {
-  email: String
-  otpCode: String
+
+export default interface Otp {
+  
+  phone: string;
+  otpCode:string;
 }
 
-const OTPSchema = new mongoose.Schema({
-  phone: {
-    type: String,
-    unique: true
+const schema = new Schema<Otp>(
+  {
+    phone:{
+      type:Schema.Types.String,
+      maxlength:14,
+      required:true,
+      unique:true
+    },
+    otpCode: {
+      type: Schema.Types.String,
+      required:true,
+      maxlength:6
+    },
   },
-  otpCode: {
-    type: String
-  }
-})
+  {
+    versionKey: false,
+  },
+);
 
-export const OTP = mongoose.model<IOTPInterface>('OTP', OTPSchema)
+schema.index({ _id: 1, status: 1 });
+schema.index({ email: 1 });
+schema.index({ status: 1 });
+
+export const OtpModel = model<Otp>(DOCUMENT_NAME, schema, COLLECTION_NAME);

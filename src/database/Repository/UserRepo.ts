@@ -15,7 +15,7 @@ async function findPrivateProfileById(
   return UserModel.findOne({ _id: id, status: true })
     .select('+email')
     .populate({
-      path: 'roles',
+      path: 'role',
       match: { status: true },
       select: { code: 1 },
     })
@@ -40,6 +40,14 @@ async function findByEmail(email: string): Promise<User | null> {
     .exec();
 }
 
+async function findByPhone(phone: string): Promise<User | null> {
+  return UserModel.findOne({ phone: phone })
+    .select(
+      '+email +password +roles +gender +dob +grade +country +state +city +school +bio +hobbies',
+    )
+    .lean()
+    .exec();
+}
 async function findFieldsById(
   id: Types.ObjectId,
   ...fields: string[]
@@ -102,6 +110,7 @@ export default {
   findPrivateProfileById,
   findById,
   findByEmail,
+  findByPhone,
   findFieldsById,
   findPublicProfileById,
   create,

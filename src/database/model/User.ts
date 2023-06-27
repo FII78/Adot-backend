@@ -17,6 +17,7 @@ export default interface User {
   password: string;
   role: string;
   salt:string;
+  isVerified: Boolean
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -35,8 +36,9 @@ const schema = new Schema<User>(
     },
     phone:{
       type:Schema.Types.String,
-      maxlength:10,
-      required:true
+      maxlength:14,
+      required:true,
+      unique:true
     },
     profilePic: {
       type: Schema.Types.String,
@@ -62,6 +64,10 @@ const schema = new Schema<User>(
     salt:{
       type:Schema.Types.String,
       required:false,
+    },
+    isVerified: {
+      type: Boolean,
+      default: false
     },
     createdAt: {
       type: Schema.Types.Date,

@@ -18,7 +18,7 @@ export default {
     firstName: Joi.string().required().min(3),
     lastName:Joi.string().required().min(3),
     email: Joi.string().email(),
-    phone:Joi.string().required().max(10),
+    phone:Joi.string().required().max(14),
     password: Joi.string().required().min(6),
     profilePic: Joi.string().optional(),
   }),
