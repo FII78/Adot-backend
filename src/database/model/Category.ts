@@ -4,6 +4,7 @@ export const DOCUMENT_NAME = 'Category';
 export const COLLECTION_NAME = 'categorys';
 
 export default interface Category{
+    _id: Schema.Types.ObjectId;
     topic:string
 }
 const schema = new  Schema<Category>({
