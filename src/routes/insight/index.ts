@@ -1,5 +1,5 @@
 import express from 'express';
-import { SuccessResponse } from '../../core/ApiResponse';
+import { SuccessMsgResponse, SuccessResponse } from '../../core/ApiResponse';
 import asyncHandler from '../../helpers/asyncHandler';
 import validator, { ValidationSource } from '../../helpers/validator';
 import schema from './schema';
@@ -9,6 +9,8 @@ import { Types } from 'mongoose';
 import InsightCache from '../../cache/repository/InsightCache';
 import { BadRequestError } from '../../core/ApiError';
 import InsightRepo from '../../database/repository/InsightRepo';
+import { ProtectedRequest } from 'app-request';
+import Insight from '../../database/model/Insight';
 
 const router = express.Router();
 
@@ -88,4 +90,59 @@ router.get(
     }),
   );
 
+
+  router.post(
+    '/',
+    validator(schema.insightCreate),
+    asyncHandler(async (req: ProtectedRequest, res) => {
+
+      const createdInsight = await InsightRepo.create({
+        title: req.body.title,
+        content: req.body.content,
+        thumbnailImage: req.body.thumbnaiIimage,
+        topic: req.body.topic,
+        reviewer: req.body.reviewer,
+        stages: req.body.stages,
+        category: req.body.category,
+        referance: req.body.referance,
+      } as Insight);
+  
+      new SuccessResponse('Insight created successfully', createdInsight).send(res);
+    }),
+  );
+  
+  router.put(
+    '/id/:id',
+    validator(schema.insightId, ValidationSource.PARAM),
+    validator(schema.insightUpdate),
+    asyncHandler(async (req: ProtectedRequest, res) => {
+      const insight = await InsightRepo.findInsightAllDataById(
+        new Types.ObjectId(req.params.id),
+      );
+      if (insight == null) throw new BadRequestError('Insight does not exists');
+  
+      if (req.body.title) insight.title = req.body.title;
+      if (req.body.content) insight.content = req.body.description;
+      if (req.body.reviewer) insight.reviewer = req.body.reviewer;
+      if (req.body.stage) insight.stages = req.body.stage;
+      if (req.body.thumbnaiIimage) insight.thumbnailImage = req.body.thumbnaiIimage;
+      if (req.body.referance) insight.referance = req.body.referance;
+      if (req.body.topic) insight.topic = req.body.topic;
+      if (req.body.category) insight.category = req.body.category;
+
+  
+      await InsightRepo.update(insight);
+      new SuccessResponse('Insight updated successfully', insight).send(res);
+    }),
+  );
+  router.delete(
+    '/id/:id',
+    asyncHandler(async (req: ProtectedRequest, res) => {
+      const insightId = req.body.id
+      if (!insightId) throw new BadRequestError('Insight does not exists');
+      await InsightRepo.Delete(insightId);
+      return new SuccessMsgResponse('Insight deleted successfully').send(res);
+    }),
+  );
+  
 export default router;

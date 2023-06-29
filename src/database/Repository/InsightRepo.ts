@@ -18,7 +18,12 @@ async function update(insight: Insight): Promise<Insight | null> {
     .lean()
     .exec();
 }
-
+async function Delete(insightId: string){
+  const insight = InsightModel.findOne({ _id: insightId, status: true })
+  await InsightModel.deleteOne(insight)
+    .lean()
+    .exec();
+}
 async function findInfoById(id: Types.ObjectId): Promise<Insight | null> {
   return InsightModel.findOne({ _id: id, status: true })
     .populate('reviewer', REVIEWER_DETAIL)
@@ -141,6 +146,7 @@ export default {
   update,
   findAll,
   findInfoById,
+  Delete,
   findInfoForReviewedById,
   findLatestInsights,
   findInsightAllDataById,

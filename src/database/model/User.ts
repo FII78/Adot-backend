@@ -3,9 +3,6 @@ import { model, Schema, Types } from 'mongoose';
 
 export const DOCUMENT_NAME = 'User';
 export const COLLECTION_NAME = 'users';
-// import { scrypt, randomBytes, timingSafeEqual } from 'crypto';
-
-// const salt = randomBytes(16).toString('hex');
 
 export default interface User {
   _id: Types.ObjectId;
@@ -98,7 +95,7 @@ const schema = new Schema<User>(
 );
 
 schema.index({ _id: 1, status: 1 });
-schema.index({ email: 1 });
+schema.index({ phone: 1 });
 schema.index({ status: 1 });
 
 export const UserModel = model<User>(DOCUMENT_NAME, schema, COLLECTION_NAME);
