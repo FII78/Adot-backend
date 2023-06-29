@@ -137,6 +137,8 @@ async function findAll(): Promise<Insight[]> {
   ): Promise<Insight[]> {
     return InsightModel.find(query)
       .populate('reviewer', REVIEWER_DETAIL)
+      .populate('topic')
+      .populate('category')
       .sort({ updatedAt: -1 })
       .lean()
       .exec();

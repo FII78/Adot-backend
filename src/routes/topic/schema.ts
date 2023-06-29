@@ -11,11 +11,11 @@ export default {
   topicCreate: Joi.object().keys({
     title: Joi.string().required().min(3).max(500),
     description: Joi.string().required().min(3).max(2000),
-    thumbnailImage: Joi.string().required(),
+    reviewer: Joi.string().required(),
+    category:Joi.string().required()
   }),
   topicUpdate: Joi.object().keys({
     title: Joi.string().optional().min(3).max(500),
     description: Joi.string().optional().min(3).max(2000),
-    thumbnailImage: Joi.string().optional(),
   }),
 };

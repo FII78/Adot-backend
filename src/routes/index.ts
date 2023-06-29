@@ -5,11 +5,10 @@ import login from './access/login';
 import logout from './access/logout';
 import token from './access/token';
 import credential from './access/credential';
-import blog from './blog';
-import blogs from './blogs';
 import profile from './profile';
 import topic from './topic';
 import insight from './insight'
+import category from './category';
 
 const router = express.Router();
 
@@ -25,9 +24,8 @@ router.use('/logout', logout);
 router.use('/token', token);
 router.use('/credential', credential);
 router.use('/profile', profile);
-router.use('/blog', blog);
-router.use('/blogs', blogs);
 router.use('/topic', topic);
+router.use('/category', category)
 router.use('/insight', insight)
 
 export default router;

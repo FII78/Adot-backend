@@ -5,10 +5,10 @@ export const COLLECTION_NAME = 'categorys';
 
 export default interface Category{
     _id: Schema.Types.ObjectId;
-    topic:string
+    title:string
 }
 const schema = new  Schema<Category>({
-    topic:{
+    title:{
         type: Schema.Types.String,
         required:true
     }

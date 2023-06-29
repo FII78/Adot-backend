@@ -11,6 +11,9 @@ export default {
     content: Joi.string().required().min(3),
     stage: Joi.string().required().max(50000),
     referance: Joi.string().optional(),
+    reviewer:Joi.string().required(),
+    topic: Joi.string().required(),
+    category: Joi.string().required()
   }),
   insightUpdate: Joi.object().keys({
     title: Joi.string().required().min(3).max(500),

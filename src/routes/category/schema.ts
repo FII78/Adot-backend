@@ -10,7 +10,7 @@ export default {
     pageNumber: Joi.number().required().integer().min(1),
     pageItemCount: Joi.number().required().integer().min(1),
   }),
-  create: Joi.object().keys({
+  createCategory: Joi.object().keys({
     title: Joi.string().required().min(3),
   }),
 };

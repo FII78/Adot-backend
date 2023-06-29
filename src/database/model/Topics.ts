@@ -21,9 +21,7 @@ const schema = new Schema<Topic>(
   {
     thumbnaiIimage:{
       type:Schema.Types.String,
-      maxlength:14,
       required:true,
-      unique:true
     },
     reviewer: {
       type: Schema.Types.ObjectId,
