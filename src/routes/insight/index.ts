@@ -11,6 +11,8 @@ import { BadRequestError } from '../../core/ApiError';
 import InsightRepo from '../../database/repository/InsightRepo';
 import { ProtectedRequest } from 'app-request';
 import Insight from '../../database/model/Insight';
+import { filterImage } from '../../middlewares/multer';
+import cloudinary from '../../config/cloudinary';
 
 const router = express.Router();
 
@@ -92,14 +94,19 @@ router.get(
 
 
   router.post(
-    '/',
+    '/',filterImage.single('file'),
     validator(schema.insightCreate),
     asyncHandler(async (req: ProtectedRequest, res) => {
-
+      let cloudinaryImage = null;
+      if (req.file){
+       cloudinaryImage = await cloudinary.uploader.upload(req.file.path, {
+        folder: 'Images',
+        use_filename: true,
+      });}
       const createdInsight = await InsightRepo.create({
         title: req.body.title,
         content: req.body.content,
-        thumbnailImage: req.body.thumbnaiIimage,
+        thumbnailImage: cloudinaryImage?.secure_url,
         topic: req.body.topic,
         reviewer: req.body.reviewer,
         stages: req.body.stages,
@@ -139,7 +146,11 @@ router.get(
     '/id/:id',
     asyncHandler(async (req: ProtectedRequest, res) => {
       const insightId = req.body.id
-      if (!insightId) throw new BadRequestError('Insight does not exists');
+      if (!insightId) throw new BadRequestError('Insight id is required');
+      const insight =  InsightRepo.findInfoById(insightId)
+      if (!insight){
+        throw new BadRequestError('Insight does not exist')
+      }
       await InsightRepo.Delete(insightId);
       return new SuccessMsgResponse('Insight deleted successfully').send(res);
     }),
