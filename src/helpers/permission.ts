@@ -9,7 +9,7 @@ export default (permission: string) =>
         return next(new ForbiddenError('Permission Denied'));
 
       const exists = req.apiKey.permissions.find(
-        (entry) => entry === permission,
+        (entry: string) => entry === permission,
       );
       if (!exists) return next(new ForbiddenError('Permission Denied'));
 

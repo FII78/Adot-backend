@@ -12,12 +12,6 @@ import category from './category';
 
 const router = express.Router();
 
-/*---------------------------------------------------------*/
-// router.use(apikey);
-/*---------------------------------------------------------*/
-/*---------------------------------------------------------*/
-// router.use(permission(Permission.GENERAL));
-// /*---------------------------------------------------------*/
 router.use('/signup', signup);
 router.use('/login', login);
 router.use('/logout', logout);
