@@ -1,8 +1,4 @@
 import Otp, { OtpModel } from '../model/OTP';
-import { InternalError } from '../../core/ApiError';
-import { Types } from 'mongoose';
-import KeystoreRepo from './KeystoreRepo';
-import Keystore from '../model/Keystore';
 
 async function findByPhone(phone: string): Promise<Otp | null> {
     return OtpModel.findOne({ phone: phone })
