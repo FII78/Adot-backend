@@ -23,7 +23,7 @@ router.post(
       folder: 'Images',
       use_filename: true,
     });}
-    // try{
+    try{
     const createdTopic = await TopicRepo.create({
       title: req.body.title,
       thumbnaiIimage:cloudinaryImage?.secure_url,
@@ -33,9 +33,9 @@ router.post(
     } as Topic);
 
     new SuccessResponse('Topic created successfully', createdTopic).send(res);
-  // }catch{
-    // throw new InternalError('Could not create the topic')
-  // }
+  }catch{
+    throw new InternalError('Could not create the topic')
+  }
   }),
 );
 

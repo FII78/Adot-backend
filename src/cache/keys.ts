@@ -1,11 +1,7 @@
 export enum Key {
-  BLOGS_LATEST = 'BLOGS_LATEST',
+  INSIGHT_LATEST = 'INSIGHT_LATEST',
 }
 
-export enum DynamicKey {
-  BLOGS_SIMILAR = 'BLOGS_SIMILAR',
-  BLOG = 'BLOG',
-}
 export enum DynamicKey {
   TOPICS_SIMILAR = 'BLOGS_SIMILAR',
   TOPIC = 'TOPIC',

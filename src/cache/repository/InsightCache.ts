@@ -8,7 +8,7 @@ import { getListRange, setList } from '../query';
 
 
 function getKeyForId(insightId: Types.ObjectId) {
-    return getDynamicKey(DynamicKey.BLOG, insightId.toHexString());
+    return getDynamicKey(DynamicKey.INSIGHT, insightId.toHexString());
   }
   
   function getKeyForUrl(insightUrl: string) {
