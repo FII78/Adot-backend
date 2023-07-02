@@ -13,4 +13,7 @@ export default {
   createCategory: Joi.object().keys({
     title: Joi.string().required().min(3),
   }),
+  updateCategory: Joi.object().keys({
+    title: Joi.string().optional().min(3),
+  }),
 };

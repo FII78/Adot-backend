@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import Category, { CategoryModel } from '../model/Category';
 
 async function findAll(): Promise<Category[]> {
@@ -23,7 +24,32 @@ async function findAll(): Promise<Category[]> {
       category: { ...createdCategory.toObject()}
     };
   }
+  async function findCategoryAllDataById(id: Types.ObjectId): Promise<Category | null> {
+    return CategoryModel.findOne({ _id: id, status: true })
+      .lean()
+      .exec();
+  }
+  async function update(category: Category): Promise<Category | null> {
+    return CategoryModel.findByIdAndUpdate(category._id, category, { new: true })
+      .lean()
+      .exec();
+  }
+  async function Delete(categoryId: string){
+    const category = CategoryModel.findOne({ _id: categoryId, status: true })
+    await CategoryModel.deleteOne(category)
+      .lean()
+      .exec();
+  }
+  async function findInfoById(id: Types.ObjectId): Promise<Category | null> {
+    return CategoryModel.findOne({ _id: id, status: true })
+      .lean()
+      .exec();
+  }
   export default {
     findAll,
-    create
+    create,
+    findCategoryAllDataById,
+    update,
+    Delete,
+    findInfoById
   };

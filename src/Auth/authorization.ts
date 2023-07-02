@@ -19,7 +19,7 @@ const router = express.Router();
 export default router.use(
   validator(schema.auth, ValidationSource.HEADER),
   asyncHandler(async (req: ProtectedRequest, res, next) => {
-    req.accessToken = getAccessToken(req.headers.authorization); // Express headers are auto converted to lowercase
+    req.accessToken = getAccessToken(req.headers.authorization); 
 
     try {
       const payload = await JWT.validate(req.accessToken);
