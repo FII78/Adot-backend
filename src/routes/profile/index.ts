@@ -36,10 +36,14 @@ router.put(
     if (!user) throw new BadRequestError('User not registered');
 
     if (req.body.firstName) user.firstName = req.body.firstName;
+    if (req.body.lastName) user.lastName = req.body.lastName;
+    if (req.body.bio) user.bio = req.body.bio;
+    if (req.body.stage) user.stage = req.body.stage;
+    if (req.body.title) user.title = req.body.title;
     if (req.body.profilePicUrl) user.profilePic = req.body.profilePic;
 
     if (req.body.savedInsightId) {
-      user.savedInsight.push(req.body.savedInsightId);
+      user.savedInsights.push(req.body.savedInsightId);
     }
 
     await UserRepo.updateInfo(user);
