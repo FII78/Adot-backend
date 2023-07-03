@@ -3,7 +3,7 @@ import { SuccessMsgResponse, SuccessResponse } from '../../core/ApiResponse';
 import asyncHandler from '../../helpers/asyncHandler';
 import validator, { ValidationSource } from '../../helpers/validator';
 import schema from './schema';
-import { NotFoundError } from '../../core/ApiError';
+import { AuthFailureError, NotFoundError } from '../../core/ApiError';
 import InstghtRepo from '../../database/repository/InsightRepo';
 import { Types } from 'mongoose';
 import InsightCache from '../../cache/repository/InsightCache';
@@ -13,6 +13,9 @@ import { ProtectedRequest } from 'app-request';
 import Insight from '../../database/model/Insight';
 import { filterImage } from '../../middlewares/multer';
 import cloudinary from '../../config/cloudinary';
+import { getAccessToken, validateTokenData } from '../../auth/authUtils';
+import JWT from '../../core/JWT';
+import UserRepo from '../../database/repository/UserRepo';
 
 const router = express.Router();
 
@@ -97,12 +100,20 @@ router.get(
     '/',filterImage.single('file'),
     validator(schema.insightCreate),
     asyncHandler(async (req: ProtectedRequest, res) => {
+      req.accessToken = getAccessToken(req.headers.authorization); 
+        const payload = await JWT.validate(req.accessToken);
+        validateTokenData(payload);
+  
+        const user = await UserRepo.findById(new Types.ObjectId(payload.sub));
+        if (!user) throw new AuthFailureError('User not registered');
+        if (user.role != 'Admin') throw new BadRequestError('You do not have access to create insight')
       let cloudinaryImage = null;
       if (req.file){
        cloudinaryImage = await cloudinary.uploader.upload(req.file.path, {
         folder: 'Images',
         use_filename: true,
       });}
+      
       const createdInsight = await InsightRepo.create({
         title: req.body.title,
         content: req.body.content,

@@ -23,6 +23,7 @@ router.post(
     const user = await UserRepo.findByPhone(req.body.phone);
     if (!user) throw new BadRequestError('User not registered');
     if (!user.password) throw new BadRequestError('Credential not set');
+    if (!user.isVerified) throw new BadRequestError('User not verified');
 
     const match = await comparePasswords(req.body.password, user.password, user.salt || '');
     if (!match) throw new AuthFailureError('Authentication failure');

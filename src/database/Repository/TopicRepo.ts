@@ -105,6 +105,13 @@ async function findDetailedTopics(
     .exec();
 }
 
+async function Delete(topicId: string){
+  const topic = TopicModel.findOne({ _id: topicId, status: true })
+  await TopicModel.deleteOne(topic)
+    .lean()
+    .exec();
+}
+
 export default {
   create,
   update,
@@ -116,4 +123,5 @@ export default {
   findLatestTopics,
   search,
   searchLike,
+  Delete
 };
