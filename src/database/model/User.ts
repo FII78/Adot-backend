@@ -16,6 +16,7 @@ export default interface User {
   title:string,
   bio:string
   salt:string;
+  savedInsight:Types.ObjectId[];
   isVerified: Boolean
   createdAt?: Date;
   updatedAt?: Date;
@@ -66,6 +67,10 @@ const schema = new Schema<User>(
     },
     bio:{
       type:Schema.Types.String,
+      required:false
+    },
+    savedInsight:{
+      type:[Schema.Types.ObjectId],
       required:false
     },
     salt:{

@@ -35,12 +35,16 @@ router.put(
     const user = await UserRepo.findPrivateProfileById(req.user._id);
     if (!user) throw new BadRequestError('User not registered');
 
-    if (req.body.name) user.firstName = req.body.firstName;
+    if (req.body.firstName) user.firstName = req.body.firstName;
     if (req.body.profilePicUrl) user.profilePic = req.body.profilePic;
+
+    if (req.body.savedInsightId) {
+      user.savedInsight.push(req.body.savedInsightId);
+    }
 
     await UserRepo.updateInfo(user);
 
-    const data = _.pick(user, ['firstName','lastName', 'profilePic']);
+    const data = _.pick(user, ['firstName', 'lastName', 'profilePic']);
 
     return new SuccessResponse('Profile updated', data).send(res);
   }),

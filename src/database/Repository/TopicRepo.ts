@@ -35,15 +35,6 @@ async function findTopicAllDataById(id: Types.ObjectId): Promise<Topic | null> {
     .exec();
 }
 
-async function findReviewedByUrl(topicUrl: string): Promise<Topic | null> {
-  return TopicModel.findOne({
-    topicUrl: topicUrl,
-    status: true,
-  })
-    .populate('reviewer', REVIEWER_DETAIL)
-    .lean()
-    .exec();
-}
 
 async function findUrlIfExists(topicUrl: string): Promise<Topic | null> {
   return TopicModel.findOne({ topicUrl: topicUrl }).lean().exec();
@@ -119,7 +110,6 @@ export default {
   update,
   findInfoById,
   findTopicAllDataById,
-  findReviewedByUrl,
   findAll,
   findInfoForReviewedById,
   findUrlIfExists,
