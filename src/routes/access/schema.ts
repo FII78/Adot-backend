@@ -22,6 +22,7 @@ export default {
     password: Joi.string().required().min(6),
     profilePic: Joi.string().optional(),
     bio: Joi.string(),
-    title:Joi.string()
+    title:Joi.string(),
+    stage:Joi.number()
   }),
 };

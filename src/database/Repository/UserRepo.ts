@@ -41,7 +41,16 @@ async function findByPhone(phone: string): Promise<User | null> {
     .lean()
     .exec();
 }
-
+async function findAll(): Promise<User[]> {
+  return findDetailedUsers({ status: true });
+}
+async function findDetailedUsers(
+  query: Record<string, unknown>,
+): Promise<User[]> {
+  return UserModel.find(query)
+    .lean()
+    .exec();
+}
 async function create(
   user: User,
   accessTokenKey: string,
@@ -95,4 +104,5 @@ export default {
   create,
   update,
   updateInfo,
+  findAll
 };

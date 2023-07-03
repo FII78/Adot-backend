@@ -1,6 +1,12 @@
 import Logger from './core/Logger';
-import app from './app'
+import app from './app';
+import cron from 'node-cron';
+import updateStageEveryWeek from './helpers/scheduler';
+
 const port = process.env.PORT || 3000;
+
+cron.schedule('0 0 * * 0', updateStageEveryWeek);
+
 app.listen(port, () => {
   Logger.info(`server running on port : ${port}`);
 })

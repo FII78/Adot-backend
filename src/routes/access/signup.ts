@@ -54,6 +54,7 @@ router.post(
         role: req.body.role,
         bio:req.body.bio,
         title:req.body.title,
+        stage:req.body.stage,
         profilePic: cloudinaryImage?.secure_url,
         password: passwordHash,
         salt: salt,
