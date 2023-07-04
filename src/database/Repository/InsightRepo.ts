@@ -47,14 +47,10 @@ async function findInsightAllDataById(id: Types.ObjectId): Promise<Insight | nul
     .exec();
 }
 
-async function findByStageAndPaginated(
+async function findByStage(
   stage: string,
-  pageNumber: number,
-  limit: number,
 ): Promise<Insight[]> {
   return InsightModel.find({ stage: stage, status: true })
-    .skip(limit * (pageNumber - 1))
-    .limit(limit)
     .populate('reviewer', REVIEWER_DETAIL)
     .sort({ updatedAt: -1 })
     .lean()
@@ -70,12 +66,8 @@ async function findAllReviewedForReviewer(user: User): Promise<Insight[]> {
 }
 
 async function findLatestInsights(
-  pageNumber: number,
-  limit: number,
 ): Promise<Insight[]> {
   return InsightModel.find({ status: true, isPublished: true })
-    .skip(limit * (pageNumber - 1))
-    .limit(limit)
     .populate('reviewer', REVIEWER_DETAIL)
     .sort({ createdAt: -1 })
     .lean()
@@ -156,5 +148,5 @@ export default {
   search,
   searchLike,
   findAllReviewedForReviewer,
-  findByStageAndPaginated
+  findByStage
 };

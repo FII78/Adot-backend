@@ -13,7 +13,7 @@ export default interface Insight {
   content: string;
   topic: Topic;
   category: Category;
-  stages: string;
+  stage: number;
   thumbnailImage: string;
   referance: string;
   reviewer: User;
@@ -44,11 +44,11 @@ const schema = new Schema<Insight>(
       required: true,
       ref: 'Category'
     },
-    stages: 
+    stage: 
       {
-        type: Schema.Types.String,
-        enum:['1 week','2 week'],
-        required: false
+        type: Schema.Types.Number,
+        required: false,
+        default: 1
     },
     thumbnailImage: {
       type: Schema.Types.String,
@@ -81,5 +81,6 @@ const schema = new Schema<Insight>(
   },
 );
 schema.index({ _id: 1, status: 1 });
+schema.index({ title: 'text' });
 
 export const InsightModel = model<Insight>(DOCUMENT_NAME, schema, COLLECTION_NAME);

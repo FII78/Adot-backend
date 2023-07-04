@@ -42,13 +42,9 @@ router.get(
 
 router.get(
     '/stage/:stage',
-    validator(schema.insightStage, ValidationSource.PARAM),
-    validator(schema.pagination, ValidationSource.QUERY),
     asyncHandler(async (req, res) => {
-      const insights = await InstghtRepo.findByStageAndPaginated(
-        req.params.tag,
-        parseInt(req.query.pageNumber as string),
-        parseInt(req.query.pageItemCount as string),
+      const insights = await InstghtRepo.findByStage(
+        req.params.stage,
       );
       return new SuccessResponse('success', insights).send(res);
     }),
@@ -56,11 +52,8 @@ router.get(
   
   router.get(
     '/latest',
-    validator(schema.pagination, ValidationSource.QUERY),
     asyncHandler(async (req, res) => {
       const insights = await InstghtRepo.findLatestInsights(
-        parseInt(req.query.pageNumber as string),
-        parseInt(req.query.pageItemCount as string),
       );
       return new SuccessResponse('success', insights).send(res);
     }),
@@ -72,14 +65,12 @@ router.get(
     asyncHandler(async (req, res) => {
       const insightId = new Types.ObjectId(req.params.id);
       let insights = await InsightCache.fetchSimilarInsights(insightId);
-  
       if (!insights) {
         const insight = await InstghtRepo.findInfoForReviewedById(
           new Types.ObjectId(req.params.id),
         );
         if (!insight) throw new BadRequestError('Insight is not available');
         insights = await InstghtRepo.searchSimilarInsights(insight, 6);
-  
         if (insights && insights.length > 0)
           await InsightCache.saveSimilarInsights(insightId, insights);
       }
@@ -120,7 +111,7 @@ router.get(
         thumbnailImage: cloudinaryImage?.secure_url,
         topic: req.body.topic,
         reviewer: req.body.reviewer,
-        stages: req.body.stages,
+        stage: req.body.stage,
         category: req.body.category,
         referance: req.body.referance,
       } as Insight);
@@ -142,7 +133,7 @@ router.get(
       if (req.body.title) insight.title = req.body.title;
       if (req.body.content) insight.content = req.body.description;
       if (req.body.reviewer) insight.reviewer = req.body.reviewer;
-      if (req.body.stage) insight.stages = req.body.stage;
+      if (req.body.stage) insight.stage = req.body.stage;
       if (req.body.thumbnaiIimage) insight.thumbnailImage = req.body.thumbnaiIimage;
       if (req.body.referance) insight.referance = req.body.referance;
       if (req.body.topic) insight.topic = req.body.topic;

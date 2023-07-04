@@ -25,7 +25,7 @@ export default {
     id: JoiObjectId().required(),
   }),
   insightStage: Joi.object().keys({
-    tag: Joi.string().required(),
+    stage: Joi.string().required(),
   }),
   pagination: Joi.object().keys({
     pageNumber: Joi.number().required().integer().min(1),
