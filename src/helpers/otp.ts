@@ -4,7 +4,6 @@ const accountSid = process.env.OTP_ACCOUNT_SID;
 const authToken = process.env.OTP_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
-// Sending an OTP SMS
 export const sendOtp = (recipientNumber:string, generatedOTP:string)=>{
     client.messages
     .create({
@@ -27,4 +26,3 @@ export const generateOTP = (length: number) => {
 
   return OTP
 }
-console.log(generateOTP(6))

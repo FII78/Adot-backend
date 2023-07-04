@@ -16,7 +16,6 @@ import cloudinary from '../../config/cloudinary';
 import { filterImage } from '../../middlewares/multer';
 import { sendOtp } from '../../helpers/otp';
 import { generateOTP } from '../../helpers/otp';
-import { Request, Response, NextFunction } from 'express';
 import OtpRepo from '../../database/repository/OtpRepo'
 
 const scryptAsync = promisify(scrypt);
@@ -134,7 +133,6 @@ const validateUser = async (phone: string, otpCode: string) => {
       }
       const userOtp = await OtpRepo.findByPhone(phone)
       if (userOtp && (userOtp.otpCode !== otpCode)) {
-        console.log(userOtp.otpCode !== otpCode, userOtp.otpCode, otpCode)
         return false
       }
       user.isVerified = true
