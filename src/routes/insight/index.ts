@@ -78,6 +78,37 @@ router.get(
       return new SuccessResponse('success', insights ? insights : []).send(res);
     }),
   );
+
+  router.get('/search/', asyncHandler(async (req, res) => {
+    try {
+      const query: string = req.query.query as string;
+      const limit = 6;
+  
+      if (!query) {
+        throw new BadRequestError('Search query is required');
+      }
+  
+      const insights = await InsightRepo.search(query, limit);
+  
+      if (!insights || insights.length === 0) {
+        throw new BadRequestError('Insights are not available');
+      }
+  
+      return res.json({
+        success: true,
+        message: 'Success',
+        data: insights,
+      });
+    } catch (error) {
+      if (error instanceof BadRequestError) {
+        res.status(400).json({ error: error.message });
+      } else {
+        res.status(500).json({ error: 'An error occurred during the search.' });
+      }
+    }
+  }));
+  
+
   router.get(
     '/All',
     asyncHandler(async (req, res) => {

@@ -16,9 +16,9 @@ export default {
     category: Joi.string().required()
   }),
   insightUpdate: Joi.object().keys({
-    title: Joi.string().required().min(3).max(500),
-    content: Joi.string().required().min(3),
-    stage: Joi.string().required().max(50000),
+    title: Joi.string().optional().min(3).max(500),
+    content: Joi.string().optional().min(3),
+    stage: Joi.string().optional().max(50000),
     referance: Joi.string().optional(),
   }),
   insightId: Joi.object().keys({
