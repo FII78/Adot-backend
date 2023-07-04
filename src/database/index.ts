@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import options from '../config'
-import Logger from '../core/Logger';
+import Logger from '../core/logger';
 import { db } from '../config';
 
 const dbURI = options.dbUrl

@@ -1,0 +1,195 @@
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T11:54:16.744Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T11:54:48.014Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T11:54:48.020Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T11:54:48.034Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T11:54:50.191Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T11:54:50.519Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T11:54:51.537Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T11:54:51.547Z"}
+{"level":"error","message":"500 - ENOENT: no such file or directory, open 'C:\\Users\\hp\\Desktop\\Ad\\Adot-backend\\keys\\public.pem' - /profile/my/ - GET - ::1","timestamp":"2023-07-04T11:55:25.668Z"}
+{"code":"ENOENT","errno":-4058,"level":"error","path":"C:\\Users\\hp\\Desktop\\Ad\\Adot-backend\\keys\\public.pem","syscall":"open","timestamp":"2023-07-04T11:55:25.672Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T11:57:17.539Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T11:57:17.560Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T11:57:45.545Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T11:57:47.128Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T11:57:47.796Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T11:57:48.257Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T11:57:50.782Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T11:57:50.793Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T11:59:49.087Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T11:59:49.121Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:00:16.003Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:00:17.879Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:00:18.168Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:00:18.476Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:00:20.303Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T12:00:20.311Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:02:04.572Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:02:04.605Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:09:40.014Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:09:41.491Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:09:41.784Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:09:42.138Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:09:45.186Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T12:09:45.193Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:13:45.447Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:13:45.455Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:14:41.621Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:14:57.618Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:14:57.623Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:14:57.633Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:02.910Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:02.967Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:08.548Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:08.655Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:13.962Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:14.131Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:19.452Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:19.669Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:24.949Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:25.212Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:15:27.846Z"}
+{"level":"info","message":"Mongoose connection error","timestamp":"2023-07-04T12:15:27.849Z"}
+{"level":"error","message":"connect ETIMEDOUT 15.184.119.187:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":30,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-hrpubi-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"timestamp":"2023-07-04T12:15:27.876Z"}
+{"level":"error","message":"Mongoose default connection error: MongooseServerSelectionError: connect ETIMEDOUT 15.184.119.187:27017","timestamp":"2023-07-04T12:15:27.878Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:31.363Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:31.676Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:15:32.105Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:15:46.426Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:15:47.191Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:52.208Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:52.215Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:15:58.598Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:15:58.658Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:16:00.459Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:16:00.752Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:16:32.945Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T12:16:32.955Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:16:38.117Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:17:35.023Z"}
+{"level":"info","message":"Mongoose default connection disconnected through app termination","timestamp":"2023-07-04T12:17:35.032Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:17:49.008Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:17:49.897Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:17:55.700Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:17:55.706Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:18:00.992Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:18:01.051Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:18:06.549Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:18:06.655Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:18:11.947Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:18:12.116Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:18:17.374Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:18:17.591Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:18:20.106Z"}
+{"level":"info","message":"Mongoose connection error","timestamp":"2023-07-04T12:18:20.111Z"}
+{"level":"error","message":"Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-hrpubi-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"timestamp":"2023-07-04T12:18:20.159Z"}
+{"level":"error","message":"Mongoose default connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","timestamp":"2023-07-04T12:18:20.161Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:18:22.859Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:18:23.126Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:18:28.404Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:18:28.711Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:18:32.280Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:18:32.573Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:20:14.810Z"}
+{"level":"info","message":"Mongoose default connection disconnected through app termination","timestamp":"2023-07-04T12:20:14.823Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:21:16.676Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:21:17.615Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:21:22.630Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:21:22.636Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:21:27.942Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:21:28.003Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:21:30.495Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T12:21:30.501Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:21:33.984Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:21:34.092Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:21:39.580Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:21:39.734Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:21:43.261Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:21:44.499Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:21:44.936Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:22:00.831Z"}
+{"level":"error","message":"500 - undefined - /signup/basic/ - POST - ::1","timestamp":"2023-07-04T12:22:24.903Z"}
+{"level":"error","message":{"error":{"address":"52.71.173.103","code":"ETIMEDOUT","errno":-4039,"port":443,"syscall":"connect"}},"timestamp":"2023-07-04T12:22:24.910Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:22:30.314Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:22:30.324Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:22:43.942Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:22:44.739Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:22:49.759Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:22:49.773Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:22:50.339Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:22:50.807Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:23:07.184Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T12:23:07.197Z"}
+{"level":"error","message":"500 - undefined - /signup/basic/ - POST - ::1","timestamp":"2023-07-04T12:26:44.858Z"}
+{"level":"error","message":{"error":{"address":"44.197.96.89","code":"ETIMEDOUT","errno":-4039,"port":443,"syscall":"connect"}},"timestamp":"2023-07-04T12:26:44.867Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:26:49.642Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:26:49.660Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:27:08.447Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:27:09.182Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:27:09.479Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:27:09.785Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:27:14.098Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T12:27:14.106Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:27:36.003Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:28:04.724Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:29:12.599Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:29:12.613Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:33:56.124Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:33:56.930Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:34:01.941Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:34:01.948Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:34:07.215Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:34:07.276Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:34:13.552Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:34:13.657Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:34:17.210Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:34:17.523Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:34:27.273Z"}
+{"level":"info","message":"Mongoose connection error","timestamp":"2023-07-04T12:34:27.277Z"}
+{"level":"error","message":"Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-hrpubi-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"timestamp":"2023-07-04T12:34:27.311Z"}
+{"level":"error","message":"Mongoose default connection error: MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","timestamp":"2023-07-04T12:34:27.313Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:35:09.938Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:54:57.908Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:54:56.918Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:54:58.281Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:54:59.228Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:55:28.153Z"}
+{"level":"info","message":"Mongoose connection error","timestamp":"2023-07-04T12:55:28.158Z"}
+{"level":"error","message":"connect ETIMEDOUT 15.184.75.135:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":30,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-hrpubi-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"timestamp":"2023-07-04T12:55:28.191Z"}
+{"level":"error","message":"Mongoose default connection error: MongooseServerSelectionError: connect ETIMEDOUT 15.184.75.135:27017","timestamp":"2023-07-04T12:55:28.194Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:55:31.749Z"}
+{"level":"info","message":"Mongoose default connection disconnected through app termination","timestamp":"2023-07-04T12:55:31.771Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T12:55:46.076Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T12:55:45.265Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T12:55:51.892Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T12:55:51.896Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T12:55:53.263Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T12:55:53.602Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T12:56:16.221Z"}
+{"level":"info","message":"Mongoose connection error","timestamp":"2023-07-04T12:56:16.223Z"}
+{"level":"error","message":"connect ETIMEDOUT 15.184.119.187:27017","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":30,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":"atlas-hrpubi-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"timestamp":"2023-07-04T12:56:16.250Z"}
+{"level":"error","message":"Mongoose default connection error: MongooseServerSelectionError: connect ETIMEDOUT 15.184.119.187:27017","timestamp":"2023-07-04T12:56:16.252Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T12:56:19.538Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T13:01:49.630Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T13:01:34.778Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T13:01:49.635Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T13:01:49.641Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T13:01:50.358Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T13:01:50.719Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T13:01:54.280Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T13:01:54.284Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T13:12:43.240Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T13:12:43.272Z"}
+{"level":"debug","message":"mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T13:13:51.623Z"}
+{"level":"info","message":"server running on port : 8000","timestamp":"2023-07-04T13:14:20.409Z"}
+{"level":"error","message":"Redis connection error: Connection timeout","timestamp":"2023-07-04T13:14:20.415Z"}
+{"level":"info","message":"Cache is reconnecting","timestamp":"2023-07-04T13:14:20.431Z"}
+{"level":"info","message":"Cache is connecting","timestamp":"2023-07-04T13:14:21.157Z"}
+{"level":"info","message":"Cache is ready","timestamp":"2023-07-04T13:14:21.683Z"}
+{"level":"debug","message":"Mongoose default connection open to mongodb+srv://tigist:yichalal@cluster0.1wfgukw.mongodb.net/adot-dev?retryWrites=true&w=majority","timestamp":"2023-07-04T13:14:23.497Z"}
+{"level":"info","message":"Mongoose connection done","timestamp":"2023-07-04T13:14:23.503Z"}
+{"level":"error","message":"500 - E11000 duplicate key error collection: adot-dev.otps index: phone_1 dup key: { phone: \"+251937363056\" } - /signup/resendCode/ - POST - ::1","timestamp":"2023-07-04T13:15:28.776Z"}
+{"code":11000,"index":0,"keyPattern":{"phone":1},"keyValue":{"phone":"+251937363056"},"level":"error","timestamp":"2023-07-04T13:15:28.783Z"}
+{"level":"debug","message":"jwt malformed","name":"JsonWebTokenError","timestamp":"2023-07-04T13:16:31.794Z"}
+{"level":"info","message":"Cache disconnected","timestamp":"2023-07-04T13:18:38.329Z"}
+{"level":"info","message":"Mongoose default connection disconnected","timestamp":"2023-07-04T13:18:38.346Z"}

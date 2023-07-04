@@ -8,7 +8,7 @@ import TopicRepo from '../../database/repository/TopicRepo';
 import { Types } from 'mongoose';
 import TopicCache from '../../cache/repository/TopicCache';
 import Topic from '../../database/model/Topics';
-import cloudinary from '../../config/cloudinary';
+import cloudinary from '../../config/Cloudinary';
 import { filterImage } from '../../middlewares/multer';
 import { ProtectedRequest } from 'app-request';
 import { getAccessToken } from '../../auth/authUtils';

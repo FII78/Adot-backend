@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
-import Logger from './core/Logger';
+import Logger from './core/logger';
 import cors from 'cors';
 import { corsUrl, environment } from './config';
 import './database'; // initialize database

@@ -12,7 +12,7 @@ import InsightRepo from '../../database/repository/InsightRepo';
 import { ProtectedRequest } from 'app-request';
 import Insight from '../../database/model/Insight';
 import { filterImage } from '../../middlewares/multer';
-import cloudinary from '../../config/cloudinary';
+import cloudinary from '../../config/Cloudinary';
 import { getAccessToken, validateTokenData } from '../../auth/authUtils';
 import JWT from '../../core/JWT';
 import UserRepo from '../../database/repository/UserRepo';

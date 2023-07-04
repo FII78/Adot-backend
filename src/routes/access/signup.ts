@@ -12,7 +12,7 @@ import asyncHandler from '../../helpers/asyncHandler';
 import { getUserData } from './utils';
 import { scrypt, randomBytes } from 'crypto';
 import { promisify } from 'util';
-import cloudinary from '../../config/cloudinary';
+import cloudinary from '../../config/Cloudinary';
 import { filterImage } from '../../middlewares/multer';
 import { sendOtp } from '../../helpers/otp';
 import { generateOTP } from '../../helpers/otp';

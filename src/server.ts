@@ -1,4 +1,4 @@
-import Logger from './core/Logger';
+import Logger from './core/logger';
 import app from './app';
 import cron from 'node-cron';
 import updateStageEveryWeek from './helpers/scheduler';
