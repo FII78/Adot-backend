@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\hp\\Desktop\\Ad\\Adot-backend\\logs\\.d881b087dfa818f3e6acc0fcf488ee885b80bec3-audit.json",
+    "files": [
+        {
+            "date": 1688471637076,
+            "name": "C:\\Users\\hp\\Desktop\\Ad\\Adot-backend\\logs\\2023-07-04.log",
+            "hash": "aad8c9118db6f65659a51778a1eded346d5de6fc4e4f3c605c29f2be83fec85c"
+        }
+    ],
+    "hashType": "sha256"
+}
