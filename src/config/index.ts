@@ -56,9 +56,9 @@ export const tokenInfo = {
   export const logDirectory = process.env.LOG_DIR;
   
   export const redis = {
-    host: process.env.REDIS_HOST || '',
-    port: parseInt(process.env.REDIS_PORT || '0'),
-    password: process.env.REDIS_PASSWORD || '',
+    host: process.env.REDIS_HOST_ADOT || '',
+    port: parseInt(process.env.REDIS_PORT_ADOT || '0'),
+    password: process.env.REDIS_PASSWORD_ADOT || '',
   };
   
   export const caching = {

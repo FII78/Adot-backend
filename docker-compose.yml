@@ -55,8 +55,8 @@ services:
     restart: unless-stopped
     env_file: .env
     ports:
-      - '$REDIS_PORT:6379'
-    command: redis-server --save 20 1 --loglevel warning --requirepass $REDIS_PASSWORD
+      - '$REDIS_PORT_ADOT:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass $REDIS_PASSWORD_ADOT
     volumes:
       - cache:/data/cache
 
