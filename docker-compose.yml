@@ -17,7 +17,7 @@ services:
     env_file: .env
     ports:
       # This maps port from .env on the host to same port number on the container.
-      - '$PORT:$PORT'
+      - '$PORT:$PORT_ADOT'
     links:
       - mongo
       - redis

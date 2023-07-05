@@ -3,8 +3,8 @@ import { merge } from 'lodash'
 import path from 'path'
 
 config({ path: path.resolve(__dirname, '..', '..', '.env') })
-const env = process.env.NODE_ENV || 'development'
-export const environment = process.env.NODE_ENV;
+const env = process.env.NODE_ENV_ADOT || 'development'
+export const environment = process.env.NODE_ENV_ADOT;
 export const db = {
     name: process.env.DB_NAME || '',
     host: process.env.DB_HOST || '',
@@ -20,7 +20,7 @@ const baseConfig = {
     process.env.MONGODB_URL_DEV || 'mongodb://localhost:27017/adot',
   isDev: env === 'development',
   isTest: env === 'testing',
-  port: process.env.PORT || 3000,
+  port: process.env.PORT_ADOT || 3000,
   host: process.env.HOST || 'localhost',
   secrets: {
     jwt: process.env.JWT_SECRET,

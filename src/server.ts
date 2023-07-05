@@ -3,7 +3,7 @@ import app from './app';
 import cron from 'node-cron';
 import updateStageEveryWeek from './helpers/scheduler';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT_ADOT || 3000;
 
 cron.schedule('0 0 * * 0', updateStageEveryWeek);
 
