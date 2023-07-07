@@ -14,7 +14,7 @@ import { scrypt, randomBytes } from 'crypto';
 import { promisify } from 'util';
 import cloudinary from '../../config/Cloudinary';
 import { filterImage } from '../../middlewares/multer';
-import { sendOtp } from '../../helpers/otp';
+import { sendSMS } from '../../helpers/otp';
 import { generateOTP } from '../../helpers/otp';
 import OtpRepo from '../../database/repository/OtpRepo'
 
@@ -62,7 +62,7 @@ router.post(
       refreshTokenKey,
     )
     const OTPGenerated = generateOTP(6)
-    await sendOtp(req.body.phone,OTPGenerated)
+    await sendSMS(req.body.phone,OTPGenerated)
     const otp = await OtpRepo.create({
       phone: req.body.phone,
       otpCode: OTPGenerated
@@ -116,7 +116,7 @@ router.post(
         otpCode:newOtp
       })
       try {
-        await sendOtp(phone,  newOtp)
+        await sendSMS(phone,  newOtp)
       } catch (error) {
         throw new InternalError('Could not  resend the code')
       }
