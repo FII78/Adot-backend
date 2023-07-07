@@ -1,4 +1,6 @@
 import otpGenerator from 'otp-generator'
+import axios from 'axios'
+
 
 const accountSid = process.env.OTP_ACCOUNT_SID;
 const authToken = process.env.OTP_AUTH_TOKEN;
@@ -16,6 +18,23 @@ export const sendOtp = (recipientNumber:string, generatedOTP:string)=>{
 }
 
 
+export const sendSMS = (phone: String, msg: String) => {
+    axios({
+        url: process.env.SMS_URL,
+        method: "POST",
+        data: {
+            'msg': msg,
+            'phone': phone,
+            'token': process.env.SMS_TOKEN
+        }
+    })
+        .then(response => {
+            console.log(response.data.url)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}
 export const generateOTP = (length: number) => {
   const OTP = otpGenerator.generate(length, {
     digits: true,
