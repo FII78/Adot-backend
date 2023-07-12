@@ -1,6 +1,6 @@
 import UserRepo from '../database/repository/UserRepo';
 import OtpRepo from '../database/repository/OtpRepo'
-import { generateOTP } from '../helpers/otp'
+import { generateOTP, sendSMS } from '../helpers/otp'
 import { sendOtp } from '../helpers/otp';
 import { Request, Response, NextFunction } from 'express';
 export const verifyPhone = async (
@@ -63,7 +63,7 @@ export const verifyPhone = async (
         otpCode:newOtp
       })
     try {
-      await sendOtp(phone,  newOtp)
+      await sendSMS(phone,  newOtp)
       return next()
     } catch (error) {
       res.locals.json = {
