@@ -188,5 +188,11 @@ router.get(
       return new SuccessMsgResponse('Insight deleted successfully').send(res);
     }),
   );
-  
+  router.get(
+    '/topic/:topic',
+    asyncHandler(async (req, res) => {
+      const insights = await InstghtRepo.findByTopic(req.params.topic);
+      return new SuccessResponse('success', insights).send(res);
+    }),
+  );
 export default router;

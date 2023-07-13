@@ -1,7 +1,6 @@
 import UserRepo from '../database/repository/UserRepo';
 import OtpRepo from '../database/repository/OtpRepo'
 import { generateOTP, sendSMS } from '../helpers/otp'
-import { sendOtp } from '../helpers/otp';
 import { Request, Response, NextFunction } from 'express';
 export const verifyPhone = async (
     req: Request,
