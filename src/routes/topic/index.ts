@@ -124,4 +124,13 @@ router.delete(
   }),
 );
 
+
+router.get(
+  '/category/:category',
+  asyncHandler(async (req, res) => {
+    const topics = await TopicRepo.findByCategory(req.params.category);
+    return new SuccessResponse('success', topics).send(res);
+  }),
+);
+
 export default router;
