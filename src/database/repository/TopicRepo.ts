@@ -105,6 +105,18 @@ async function findDetailedTopics(
     .exec();
 }
 
+async function findByCategory(
+  category: string,
+): Promise<Topic[]> {
+  return TopicModel
+  .find({ category: category, status: true })
+    .populate('reviewer', REVIEWER_DETAIL)
+    .populate('category')
+    .sort({ updatedAt: -1 })
+    .lean()
+    .exec();
+}
+
 async function Delete(topicId: string){
   const topic = TopicModel.findOne({ _id: topicId, status: true })
   await TopicModel.deleteOne(topic)
@@ -121,6 +133,7 @@ export default {
   findInfoForReviewedById,
   findUrlIfExists,
   findLatestTopics,
+  findByCategory,
   search,
   searchLike,
   Delete

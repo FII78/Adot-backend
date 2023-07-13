@@ -57,6 +57,18 @@ async function findByStage(
     .exec();
 }
 
+async function findByTopic(
+  topic: string,
+): Promise<Insight[]> {
+  return InsightModel.find({ topic: topic, status: true })
+    .populate('reviewer', REVIEWER_DETAIL)
+    .populate('topic')
+    .populate('category')
+    .sort({ updatedAt: -1 })
+    .lean()
+    .exec();
+}
+
 async function findAllReviewedForReviewer(user: User): Promise<Insight[]> {
   return InsightModel.find({ reviewer: user, status: true })
     .populate('reviewer', REVIEWER_DETAIL)
@@ -148,5 +160,6 @@ export default {
   search,
   searchLike,
   findAllReviewedForReviewer,
-  findByStage
+  findByStage,
+  findByTopic
 };
