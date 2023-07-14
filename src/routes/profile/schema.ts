@@ -11,5 +11,6 @@ export default {
     bio: Joi.string().min(1).max(200).optional(),
     stage: Joi.string().min(1).max(200).optional(),
     profilePic: Joi.string(),
+    savedInsightId:Joi.string().optional()
   }),
 };
