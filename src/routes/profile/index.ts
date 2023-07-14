@@ -2,12 +2,13 @@ import express from 'express';
 import { SuccessResponse } from '../../core/ApiResponse';
 import UserRepo from '../../database/repository/UserRepo';
 import { ProtectedRequest } from 'app-request';
-import { BadRequestError } from '../../core/ApiError';
+import { BadRequestError, NotFoundError } from '../../core/ApiError';
 import validator from '../../helpers/validator';
 import schema from './schema';
 import asyncHandler from '../../helpers/asyncHandler';
 import _ from 'lodash';
 import authorization from '../../auth/authorization';
+import { ObjectId } from 'mongodb';
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ router.get(
 
     return new SuccessResponse(
       'success',
-      _.pick(user, ['firstName', 'lastName','phone','email','phone', 'profilePic', 'role']),
+      _.pick(user, ['firstName', 'lastName','phone','email', 'profilePic', 'role','savedInsights','stage','title','bio']),
     ).send(res);
   }),
 );
@@ -48,10 +49,35 @@ router.put(
 
     await UserRepo.updateInfo(user);
 
-    const data = _.pick(user, ['firstName', 'lastName', 'profilePic']);
+    const data = _.pick(user, ['firstName', 'lastName', 'profilePic','savedInsights']);
 
     return new SuccessResponse('Profile updated', data).send(res);
   }),
 );
+
+router.delete(
+  '/savedInsight/:insightId',
+  asyncHandler(async (req: ProtectedRequest, res) => {
+    const user = await UserRepo.findPrivateProfileById(req.user._id);
+    if (!user) throw new BadRequestError('User not registered');
+ 
+    const insightId = req.params.insightId;
+    
+    const objectId = new ObjectId(insightId);
+
+    const index = user.savedInsights.findIndex((id) => id.equals(objectId));
+
+    if (index === -1) {
+      throw new NotFoundError('Insight not found in user\'s saved insights');
+    }
+
+    user.savedInsights.splice(index, 1);
+
+    await UserRepo.updateInfo(user);
+    const data = _.pick(user, ['firstName', 'lastName', 'profilePic', 'savedInsights']);
+    return new SuccessResponse('Insight removed from saved insights', data).send(res);
+  }),
+);
+
 
 export default router;
