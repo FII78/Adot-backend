@@ -18,10 +18,9 @@
         "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
     },
     "repository": {
-        "type": "git",
-        "url": "https://github.com/janishar/nodejs-backend-architecture-typescript.git"
+        "type": "git"
     },
-    "author": "Janishar Ali",
+    "author": "Adot Team",
     "license": "Apache-2.0",
     "dependencies": {
         "@types/redis": "^4.0.11",
