@@ -12,6 +12,7 @@ import asyncHandler from '../../helpers/asyncHandler';
 import { getUserData } from './utils';
 import { PublicRequest } from '../../types/app-request';
 import { promisify } from 'util';
+import _ from 'lodash';
 
 const scryptAsync = promisify(scrypt);
 const router = express.Router();
@@ -34,10 +35,11 @@ router.post(
     await KeystoreRepo.create(user, accessTokenKey, refreshTokenKey);
     const tokens = await createTokens(user, accessTokenKey, refreshTokenKey);
     const userData = await getUserData(user);
-
+    
     new SuccessResponse('Login Success', {
       user: userData,
       tokens: tokens,
+      profile: _.pick(user, ['firstName', 'lastName','phone','email', 'profilePic', 'role','savedInsights','stage','title','bio'])
     }).send(res);
   }),
 );
