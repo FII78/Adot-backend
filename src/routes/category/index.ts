@@ -6,9 +6,9 @@ import schema from './schema';
 import { BadRequestError, InternalError, NotFoundError } from '../../core/ApiError';
 import CategoryRepo from '../../database/repository/CategoryRepo';
 import { Types } from 'mongoose';
-import TopicCache from '../../cache/repository/TopicCache';
 import { ProtectedRequest } from 'app-request';
 import Category from '../../database/model/Category';
+import TopicRepo from '../../database/repository/TopicRepo';
 
 const router = express.Router();
 router.post('/',
@@ -31,7 +31,14 @@ router.get(
     asyncHandler(async (req, res) => {
       try{
       const categories = await CategoryRepo.findAll();
-      return new SuccessResponse('success', categories).send(res);
+      const allData = []
+      for (const cat of categories) {
+        const id = cat._id.toString();
+        const topics = await TopicRepo.findByCategory(id);
+        const data = { categoryTitle: cat.title, topics };
+        allData.push(data)
+      }
+      return new SuccessResponse('success', allData).send(res);
       }catch{
         throw new InternalError('server error')
       }
