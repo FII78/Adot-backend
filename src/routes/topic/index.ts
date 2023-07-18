@@ -125,7 +125,6 @@ router.delete(
   }),
 );
 
-
 router.get(
   '/category/:category',
   asyncHandler(async (req, res) => {
