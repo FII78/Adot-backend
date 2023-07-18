@@ -15,6 +15,7 @@ import { getAccessToken } from '../../auth/authUtils';
 import { validateTokenData } from '../../auth/authUtils';
 import JWT from '../../core/JWT';
 import UserRepo from '../../database/repository/UserRepo';
+import CategoryRepo from '../../database/repository/CategoryRepo';
 
 const router = express.Router();
 router.post(
@@ -128,8 +129,13 @@ router.delete(
 router.get(
   '/category/:category',
   asyncHandler(async (req, res) => {
+    const category = await CategoryRepo.findInfoById(req.params.category)
     const topics = await TopicRepo.findByCategory(req.params.category);
-    return new SuccessResponse('success', topics).send(res);
+    if (!category){
+      throw new BadRequestError('category not exist')
+    }
+    const data = { categoryTitle: category.title, topics };
+    return new SuccessResponse('success',data).send(res);
   }),
 );
 

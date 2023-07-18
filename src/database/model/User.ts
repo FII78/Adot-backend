@@ -94,13 +94,11 @@ const schema = new Schema<User>(
     createdAt: {
       type: Schema.Types.Date,
       required: true,
-      select: false,
       default: Date.now(),
     },
     updatedAt: {
       type: Schema.Types.Date,
       required: true,
-      select: false,
       default: Date.now(),
     },
   },
