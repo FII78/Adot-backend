@@ -40,7 +40,7 @@ async function findAll(): Promise<Category[]> {
       .lean()
       .exec();
   }
-  async function findInfoById(id: Types.ObjectId): Promise<Category | null> {
+  async function findInfoById(id: string): Promise<Category | null> {
     return CategoryModel.findOne({ _id: id, status: true })
       .lean()
       .exec();
