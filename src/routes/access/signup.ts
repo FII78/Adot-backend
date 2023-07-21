@@ -26,7 +26,11 @@ router.post(
   '/basic',filterImage.single('file'),
   validator(schema.signup),
   asyncHandler(async (req: RoleRequest, res) => {
-    const user = await UserRepo.findByEmail(req.body.email);
+    let user = await UserRepo.findByEmail(req.body.email);
+
+    if (user) throw new BadRequestError('User already registered');
+
+    user = await UserRepo.findByPhone(req.body.phone)
     if (user) throw new BadRequestError('User already registered');
 
     const accessTokenKey = crypto.randomBytes(64).toString('hex');
