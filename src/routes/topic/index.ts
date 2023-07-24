@@ -78,7 +78,7 @@ router.get(
 );
 
 router.put(
-  '/id/:id',
+  '/id/:id',filterImage.single('file'),
   validator(schema.topicId, ValidationSource.PARAM),
   validator(schema.topicUpdate),
   asyncHandler(async (req: ProtectedRequest, res) => {
@@ -92,16 +92,24 @@ router.put(
     const topic = await TopicRepo.findTopicAllDataById(
       new Types.ObjectId(req.params.id),
     );
+
+    let cloudinaryImage = null;
+
     if (topic == null) throw new BadRequestError('Topic does not exists');
 
     if (req.body.title) topic.title = req.body.title;
     if (req.body.description) topic.description = req.body.description;
     if (req.body.reviewer) topic.reviewer = req.body.reviewer;
     if (req.body.category) topic.category = req.body.category;
-    if (req.body.thumbnaiIimage) topic.thumbnaiIimage = req.body.thumbnaiIimage;
-
-    await TopicRepo.update(topic);
-    new SuccessResponse('Topic updated successfully', topic).send(res);
+    if (req.file){
+      cloudinaryImage = await cloudinary.uploader.upload(req.file.path, {
+       folder: 'Images',
+       use_filename: true,
+     });
+     topic.thumbnaiIimage = cloudinaryImage?.secure_url
+    }
+    const updated = await TopicRepo.update(topic);
+    new SuccessResponse('Topic updated successfully', updated).send(res);
   }),
 );
 router.delete(
