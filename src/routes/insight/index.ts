@@ -16,6 +16,7 @@ import cloudinary from '../../config/Cloudinary';
 import { getAccessToken, validateTokenData } from '../../auth/authUtils';
 import JWT from '../../core/JWT';
 import UserRepo from '../../database/repository/UserRepo';
+import SavedInsightRepo from '../../database/repository/SavedInsightRepo';
 
 const router = express.Router();
 
@@ -24,6 +25,8 @@ router.get(
   '/id/:id',
   validator(schema.insightId, ValidationSource.PARAM),
   asyncHandler(async (req, res) => {
+
+    let insightWithFlag = null
     const insightId = new Types.ObjectId(req.params.id);
     let insight = await InsightCache.fetchById(insightId);
 
@@ -32,13 +35,27 @@ router.get(
         new Types.ObjectId(req.params.id),
       );
       if (insight) await InsightCache.save(insight);
+      else throw new NotFoundError('Insight not found');
     }
 
-    if (!insight) throw new NotFoundError('Insight not found');
-    return new SuccessResponse('success', insight).send(res);
+    if (req.headers.authorization)
+    {
+    const accessToken = getAccessToken(req.headers.authorization)
+    const payload = await JWT.validate(accessToken);
+    validateTokenData(payload);
+    const user = await UserRepo.findById(new Types.ObjectId(payload.sub));
+    if (!user) throw new AuthFailureError('User not registered');
+    const isSaved = await SavedInsightRepo.findInfoBySavedIdAndUserId((user._id).toString(), (req.params.id).toString())
+    if (isSaved)    
+       insightWithFlag =  { ...insight, saved: true }
+    else insightWithFlag = { ...insight, saved:false}
+  }
+  else{
+    insightWithFlag = {...insight, saved:false}
+  }
+    return res.json(insightWithFlag);
   }),
 );
-
 
 router.get(
     '/stage/:stage',
@@ -170,7 +187,6 @@ router.get(
       if (req.body.topic) insight.topic = req.body.topic;
       if (req.body.category) insight.category = req.body.category;
 
-  
       await InsightRepo.update(insight);
       new SuccessResponse('Insight updated successfully', insight).send(res);
     }),
