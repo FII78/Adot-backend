@@ -61,7 +61,7 @@ router.post(
         profilePic: cloudinaryImage?.secure_url,
         password: passwordHash,
         salt: salt,
-      } as unknown as User,
+      } as User,
       accessTokenKey,
       refreshTokenKey,
     )
